@@ -1,0 +1,22 @@
+
+.outdiv2 {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  padding: 0 20px;
+  z-index: 1000;
+}
+.centerp{
+    font-size: 13px;
+}
+
+.robot{
+      color: rgb(16, 124, 134);
+  font-size: 18px;
+  margin-right: 5px;
+}

@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.outdiv {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 60px;
+  padding: 0 20px;
+
+  
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  z-index: 1000;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.conversationicon {
+  color: rgb(16, 124, 134);
+  font-size: 25px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+
+
+  margin: 0;
+  padding: 0;
+}
+
+
+.center li {
+  cursor: pointer;
+  transition: transform 2s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.25s ease;
+ 
+}
+
+.center li:hover {
+  color: rgb(16, 124, 134);
+  transform: scale(1.08);
+}
+
+
+.right {
+  position: relative;
+  left: 40vw;
+}
+.headerp1{
+    font-weight: 400;
+    font-size: 20px;
+   
+}
+.usericon{
+     color: rgb(16, 124, 134);
+  font-size: 18px;
+  margin-right: 5px;
+}
