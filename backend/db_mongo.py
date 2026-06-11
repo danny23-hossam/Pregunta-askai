@@ -23,7 +23,7 @@ from datetime import datetime, timezone
 from bson import ObjectId
 from pymongo import DESCENDING, MongoClient
 
-MONGO_URL = os.getenv("MONGO_URL", "mongodb://mongo:27017")
+MONGO_URL = os.getenv("MONGO_URL", "mongodb://localhost:27017")
 MONGO_DB = os.getenv("MONGO_DB", "pregunta")
 
 _client = MongoClient(MONGO_URL)

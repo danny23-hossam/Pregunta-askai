@@ -5,6 +5,7 @@ Hybrid persistence:
   * MongoDB (NoSQL)     -> chat history, linked to a user via MySQL user id
 """
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, Header, HTTPException
@@ -18,7 +19,9 @@ import db_mongo
 from auth import create_access_token, decode_access_token, hash_password, verify_password
 from db_mysql import User, get_session, init_db
 
-load_dotenv()
+# Load .env from the project root (works whether run from the repo root or backend/).
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+load_dotenv()  # also honour a .env in the current working directory if present
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
