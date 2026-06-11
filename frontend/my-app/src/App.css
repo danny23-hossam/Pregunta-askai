@@ -12,13 +12,36 @@ html, body {
 
 }
 
-
- .chatcontainer {
+.layout {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
   padding-top: 60px;
   padding-bottom: 60px;
-  height: 100vh;
+  box-sizing: border-box;
+}
+
+.chatcontainer {
+  flex: 1;
+  height: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  position: relative;
+  min-width: 0;
 }
 
+.chat-empty {
+  margin: auto;
+  color: #777;
+  font-size: 14px;
+}
+
+.boot-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(16, 124, 134);
+  font-size: 18px;
+}

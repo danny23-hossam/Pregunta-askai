@@ -1,39 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './Chat.css'
-import axios from 'axios'
 
-const Chat = () => {
-  const [history, setHistory] = useState([])
-  const [messages, setMessages] = useState([])
+const Chat = ({ messages, isTyping, onSend }) => {
   const [input, setInput] = useState('')
-  const [isTyping, setIsTyping] = useState(false)
   const bottomRef = useRef(null)
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, isTyping])
 
-  const handleSend = async () => {
+  const handleSend = () => {
     const text = input.trim()
     if (!text || isTyping) return
-
-    setMessages(prev => [...prev, { text, from: 'user' }])
-    setHistory(prev => [...prev, { role: "user", content: text }])
     setInput('')
-    setIsTyping(true)
-
-    try {
-      const res = await axios.post("http://localhost:8000/senddata", { text, history })
-      const reply = res.data.reply
-
-      setMessages(prev => [...prev, { text: reply, from: 'ai' }])
-      setHistory(prev => [...prev, { role: "assistant", content: reply }])
-    } catch (err) {
-      console.log(err)
-      setMessages(prev => [...prev, { text: "Something went wrong.", from: 'ai' }])
-    } finally {
-      setIsTyping(false)
-    }
+    onSend(text)
   }
 
   const handleKeyDown = (e) => {
@@ -43,6 +23,9 @@ const Chat = () => {
   return (
     <>
       <div className='chat-messages'>
+        {messages.length === 0 && !isTyping && (
+          <div className='chat-empty'>Ask me anything to start the conversation.</div>
+        )}
         {messages.map((msg, i) => (
           <div key={i} className={`msg-row ${msg.from}`}>
             {msg.from === 'ai' && <div className='avatar'><i className="bi bi-robot robot"></i></div>}

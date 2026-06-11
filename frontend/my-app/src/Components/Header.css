@@ -60,8 +60,34 @@ body {
 
 
 .right {
-  position: relative;
-  left: 40vw;
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.username {
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(16, 124, 134, 0.4);
+  background: #fff;
+  color: rgb(16, 124, 134);
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.15s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(16, 124, 134, 0.08);
 }
 .headerp1{
     font-weight: 400;
